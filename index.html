@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ETN Turistar · Backoffice de Servicio</title>
+  <link rel="icon" href="assets/etn-logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#/interaction"><img src="assets/etn-wordmark.png" alt="ETN Turistar" /><span id="app-sub">Backoffice de Servicio</span></a>
+    <form id="search-form" class="search"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-5-5"/></svg><input id="search" type="search" autocomplete="off" /></form>
+    <div class="top-right">
+      <div class="lang"><button data-lang="es">ES</button><button data-lang="en">EN</button></div>
+      <button class="icon-btn" data-act="toggle-demo" title="Demo (D)" aria-label="Demo"><svg viewBox="0 0 24 24"><path d="M7 4l13 8-13 8z"/></svg></button>
+    </div>
+  </header>
+  <nav id="tabs" class="tabs"></nav>
+  <main id="main"></main>
+
+  <aside class="demo-drawer">
+    <div class="demo-head"><h3 id="demo-title">Control de demo</h3><button class="x" data-act="toggle-demo" aria-label="close">×</button></div>
+    <div id="demo-body"></div>
+  </aside>
+
+  <div id="modal" class="modal"><div class="modal-card"><div class="modal-head"><h3 id="modal-title"></h3><button class="x" data-act="close-modal" aria-label="close">×</button></div><div id="modal-body"></div></div></div>
+  <div id="toasts"></div>
+
+  <script src="js/i18n.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

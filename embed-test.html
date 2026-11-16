@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8" /><title>Embed test · ETN Backoffice in a mock Agent Desktop</title>
+<style>
+  body { margin: 0; display: flex; height: 100vh; font: 13px system-ui, sans-serif; }
+  aside { width: 260px; background: #22262d; color: #dfe4ea; padding: 16px; display: flex; flex-direction: column; gap: 8px; }
+  aside b { color: #fff; margin: 10px 0 2px; }
+  button { background: #353b45; color: #fff; border: 1px solid #4a515d; border-radius: 6px; padding: 8px; text-align: left; cursor: pointer; }
+  button:hover { background: #404754; }
+  iframe { flex: 1; border: 0; }
+  small { color: #8b95a3; }
+</style></head>
+<body>
+  <aside>
+    <b>Mock Agent Desktop</b><small>Local test only: sends postMessage events to the iframe the way an Agent Desktop integration would.</small>
+    <b>Context</b>
+    <button onclick="send({ type: 'etn:context', ani: '+525512345678' })">Call · ANI Alejandro</button>
+    <button onclick="send({ type: 'etn:context', email: 'alejandro.morales@ejemplo.mx', channel: 'web' })">Chat · email Alejandro</button>
+    <button onclick="send({ type: 'etn:context', ani: '+528123456789', folio: 'ETN-664310' })">Call · ANI Carlos + folio</button>
+    <button onclick="send({ type: 'etn:clear' })">Clear</button>
+    <b>Demo</b>
+    <button onclick="send({ type: 'etn:step', id: 'next' })">Next demo step</button>
+    <button onclick="send({ type: 'etn:lang', lang: 'en' })">English</button>
+    <button onclick="send({ type: 'etn:lang', lang: 'es' })">Español</button>
+    <small id="log"></small>
+  </aside>
+  <iframe id="bo" src="index.html"></iframe>
+  <script>
+    const send = (m) => document.getElementById('bo').contentWindow.postMessage(m, '*');
+    window.addEventListener('message', (e) => { if (e.data && e.data.type) document.getElementById('log').textContent = 'iframe → ' + e.data.type; });
+  </script>
+</body></html>
