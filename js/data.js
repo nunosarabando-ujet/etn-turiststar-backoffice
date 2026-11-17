@@ -6,7 +6,7 @@
  * Default: return trip Guadalajara → CDMX Norte, 07:30, the day after tomorrow
  * (he travels CDMX → GDL tomorrow). Change it to match what Turi offers in the call. */
 window.ETN_DEMO = {
-  sale: { origin: 'Guadalajara', destination: 'CDMX Norte', dayOffset: 2, time: '07:30', seat: '12A' },
+  sale: { origin: 'Guadalajara', destination: 'CDMX Norte', dayOffset: 2, time: '(Updated!!) 11:00', seat: '04A' },
 };
 
 window.ETN_SEED = function () {
@@ -27,12 +27,13 @@ window.ETN_SEED = function () {
   const TODAY = day(0), TOMORROW = day(1);
 
   const customers = [
-    { id: 'C-1001', name: 'Alejandro Morales', email: 'alejandro.morales@ejemplo.mx', phone: '+525512345678', doters: 'DOT-1001', level: 'Oro', points: 18450, since: '2019-03-12', rfc: 'MORA850314AB1', city: 'Ciudad de México', pref: { es: 'Ventanilla, piso inferior (12A)', en: 'Window, lower deck (12A)' }, lang: 'es-MX' },
+    { id: 'C-1001', name: 'Alejandro Morales', email: 'alejandro.morales@ejemplo.mx', phone: '+351966865588', doters: 'DOT-1001', level: 'Oro', points: 18450, since: '2019-03-12', rfc: 'MORA850314AB1', city: 'Ciudad de México', pref: { es: 'Ventanilla, piso inferior (04A)', en: 'Window, lower deck (04A)' }, lang: 'es-MX' },
     { id: 'C-4004', name: 'Carlos Mendoza', email: 'carlos.mendoza@ejemplo.mx', phone: '+528123456789', doters: 'DOT-4004', level: 'Oro', points: 22910, since: '2017-08-02', rfc: 'MERC790622KL4', city: 'Monterrey', pref: { es: 'Asiento 02A, fila preferente', en: 'Seat 02A, front row' }, lang: 'es-MX' },
   ];
 
   const tickets = [
-    { folio: 'ETN-784512', customerId: 'C-1001', origin: 'CDMX Norte', destination: 'Guadalajara', date: TOMORROW, time: '07:30', seat: '12A', fare: 1215, fareType: 'web', channel: 'web', status: 'confirmed', bus: 'Marco Polo G8 DD', history: [{ ts: at(-6, '20:14'), text: { es: 'Compra en etn.com.mx (-10% en línea)', en: 'Purchased on etn.com.mx (-10% online)' } }] },
+    { folio: 'ETN-784512', customerId: 'C-1001', origin: 'CDMX Norte', destination: 'Guadalajara', date: TOMORROW, time: '(Updated!!) 11:00', seat: '04A', fare: 1215, fareType: 'web', channel: 'web', status: 'confirmed', bus: 'Marco Polo G8 DD', history: [{ ts: at(-6, '20:14'), text: { es: 'Compra en etn.com.mx (-10% en línea)', en: 'Purchased on etn.com.mx (-10% online)' } }] },
+    { folio: 'ETN-784513', customerId: 'C-1001', origin: 'Guadalajara', destination: 'CDMX Norte', date: '2026-11-19', time: '16:30', seat: '04A', fare: 1215, fareType: 'web', channel: 'web', status: 'confirmed', bus: 'Marco Polo G8 DD', history: [{ ts: Date.now(), text: { es: 'Compra en etn.com.mx (boleto de regreso)', en: 'Purchased on etn.com.mx (return ticket)' } }] },
     { folio: 'ETN-761930', customerId: 'C-1001', origin: 'Guadalajara', destination: 'CDMX Norte', date: day(-24), time: '23:30', seat: '12A', fare: 1215, fareType: 'web', channel: 'app', status: 'used', bus: 'Marco Polo G8 DD', history: [{ ts: at(-27, '09:40'), text: { es: 'Compra en App ETN', en: 'Purchased on ETN App' } }, { ts: at(-24, '23:12'), text: { es: 'Abordaje registrado · Sala VIP Guadalajara', en: 'Boarding scanned · VIP Lounge Guadalajara' } }] },
     { folio: 'ETN-748215', customerId: 'C-1001', origin: 'CDMX Norte', destination: 'Guadalajara', date: day(-26), time: '07:30', seat: '12A', fare: 1215, fareType: 'web', channel: 'web', status: 'used', bus: 'Marco Polo G8 DD', history: [{ ts: at(-30, '21:05'), text: { es: 'Compra en etn.com.mx', en: 'Purchased on etn.com.mx' } }, { ts: at(-26, '07:11'), text: { es: 'Abordaje registrado · Sala VIP CDMX Norte', en: 'Boarding scanned · VIP Lounge CDMX Norte' } }] },
     { folio: 'ETN-664310', customerId: 'C-4004', origin: 'CDMX Norte', destination: 'Monterrey', date: TODAY, time: '09:00', seat: '02A', fare: 1701, fareType: 'web', channel: 'app', status: 'used', bus: 'Marco Polo G8 DD', history: [{ ts: at(-3, '11:02'), text: { es: 'Compra en App ETN', en: 'Purchased on ETN App' } }, { ts: at(0, '08:41'), text: { es: 'Abordaje registrado · Sala VIP CDMX Norte', en: 'Boarding scanned · VIP Lounge CDMX Norte' } }] },
@@ -49,7 +50,7 @@ window.ETN_SEED = function () {
     const dt = day(i), f = (a, b, c) => [a, b, c][i];
     schedules.push(
       mk('CDMX Norte', 'Guadalajara', dt, '07:30', '14:15', '6h 45m', 1350, 'Marco Polo G8 DD', 41, f(38, 29, 17)),
-      mk('CDMX Norte', 'Guadalajara', dt, '10:00', '16:45', '6h 45m', 1350, 'Volvo 9800 Lujo', 25, f(22, 14, 9)),
+      mk('CDMX Norte', 'Guadalajara', dt, '11:00', '16:45', '6h 45m', 1350, 'Volvo 9800 Lujo', 25, f(22, 14, 9)),
       mk('CDMX Norte', 'Guadalajara', dt, '13:00', '19:45', '6h 45m', 1350, 'Volvo 9800 Lujo', 25, f(19, 11, 6)),
       mk('CDMX Norte', 'Guadalajara', dt, '16:30', '23:15', '6h 45m', 1350, 'Marco Polo G8 DD', 41, f(35, 23, 12)),
       mk('CDMX Norte', 'Guadalajara', dt, '22:00', '04:45', '6h 45m', 1350, 'Marco Polo G8 DD', 41, f(39, 31, 20)),
